@@ -12,6 +12,7 @@ gem 'omniauth-twitter', '~> 1.2'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
 
 # Front-end
+gem 'russian', :git => 'https://github.com/tacid/russian.git'
 gem 'react-rails', '~> 1.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'

@@ -8,17 +8,24 @@
     <ul class="nav navbar-nav filter-links">
       <li>
         <% if user_signed_in? %>
-          <%= nav_link_to "Home", root_path %>
+          <%= nav_link_to "Стена", root_path %>
         <% else %>
-          <%= nav_link_to "Staff pick", root_path %>
+          <%= nav_link_to "Статьи", root_path %>
         <% end %>
       </li>
-      <li><%= nav_link_to "Top stories", top_stories_path %></li>
+      <li><%= nav_link_to "Новости", top_stories_path %></li>
       <% if user_signed_in? %>
-        <li><%= nav_link_to "Bookmarks", dashboard_bookmarks_path %></li>
+        <li><%= nav_link_to "Закладки", dashboard_bookmarks_path %></li>
       <% else %>
-        <li><a href='' data-behavior="trigger-overlay">Bookmarks</a></li>
+        <li><a href='' data-behavior="trigger-overlay">Закладки</a></li>
       <% end %>
+
+       <% if user_signed_in? %>
+        <li><%= nav_link_to "Бизнес", dashboard_bookmarks_path %></li>
+      <% else %>
+        <li><a href='' data-behavior="trigger-overlay">Бизнес</a></li>
+      <% end %>
+
     </ul>
 
     <div class="folding-nav">
@@ -27,14 +34,14 @@
           <%= react_component('SearchContainer') %>
         </li>
         <% if user_signed_in? %>
-          <li class="new-post-button"><%= link_to "Write a story", new_post_path, class: "button" %></li>
+          <li class="new-post-button"><%= link_to "Написать статью", new_post_path, class: "button" %></li>
           <li id="notifications">
             <%= react_component('NotificationsContainer', {}) %>
           </li>
           <%= render 'layouts/avatar_dropdown' %>
         <% else %>
-          <li class="new-post-button"><%= link_to "Write a story", new_post_path, class: "button", data: { behavior: 'trigger-overlay' } %></li>
-          <li class="sign-in-button"><%= link_to "Sign in / Sign up", new_user_session_path, class: 'button green-border-button', data: { behavior: 'trigger-overlay' } %></li>
+          <li class="new-post-button"><%= link_to "Написать статью", new_post_path, class: "button", data: { behavior: 'trigger-overlay' } %></li>
+          <li class="sign-in-button"><%= link_to "Войти / Регистрация", new_user_session_path, class: 'button green-border-button', data: { behavior: 'trigger-overlay' } %></li>
         <% end %>
       </ul>
     </div>
